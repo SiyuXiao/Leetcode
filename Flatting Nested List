@@ -1,0 +1,35 @@
+#Question: Given a nested list, flat the list into the list only contains the values instead of lists.
+#For example: Input: a = [1, 2, [[3, 4], 5, 6], 7] Output: [1, 2, 3, 4, 5, 6, 7]
+
+# Method1: Recursive
+a = [1, 2, [[3, 4], 5, 6], 7]
+r = []
+def flat(a):
+    for e in a:
+        if type(e) == list:
+            flat(e)
+        else:
+            r.append(e)
+    return r
+print(flat(a))
+
+# Method2: Iterative
+def flat(a):
+    def flat1(b):
+        r = []
+        for e in b:
+            if type(e) == list:
+                r += e
+            else:
+                r.append(e)
+        return r
+    p = False
+    while p == False:
+        for i in range(len(a)):
+            if type(a[i]) == list:
+                a = flat1(a)
+                break
+            elif i == len(a)-1:
+                p = True
+    return a
+print(flat([1, 2, [[3, 4], 5, 6], 7]))
