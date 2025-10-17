@@ -1,3 +1,4 @@
+//这个是我最开始写的
 def transpose(A):
     B = []
     C = []
@@ -10,3 +11,6 @@ def transpose(A):
 result = transpose([[1,2,3],[4,5,6],[7,8,9]])
 print(result)
 
+//以后用这种写法最快在不用包的情况下：
+def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+    return [list(row) for row in zip(*matrix)]
