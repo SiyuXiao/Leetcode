@@ -9,4 +9,11 @@ def winningPlayerCount(n, pick):
         d[e] = max(d[e].count(f) for f in set(d[e])) 
     return sum(1 for e in d if d[e]>e)
 winningPlayerCount(n = 4, pick = [[0,0],[1,0],[1,0],[2,1],[2,1],[2,0]])
-#这个题如果记住给你一个list，如何用最短的code写出找到这个list里最frequent的element和这个element出现的frequency会好一些
+#这个题如果记住给你一个list，如何用最短的code写出找到这个list里最frequent的element和这个element出现的frequency会好一些，比如
+l = [2, 1, 2, 2, 1, 3]
+#返回出现次数最多的元素出现的次数
+max(l.count(e) for e in set(l))
+#结果是3
+#返回最frequent的元素
+max(set(l), key=l.count)
+#结果是2
