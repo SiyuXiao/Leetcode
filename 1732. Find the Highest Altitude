@@ -1,0 +1,16 @@
+#方法1.我完全自己写的
+def largestAltitude(gain):
+    a0 = 0
+    r = [0]
+    for e in gain:
+        a0 += e
+        r.append(a0)
+    return max(r)
+largestAltitude([-4,-3,-2,-1,4,3,2])
+
+#方法2.如何把这个for循环用list comprehension
+  def largestAltitude(gain):
+      a0 = 0
+      return max([0] + [a0 := a0 + e for e in gain])
+#这是一个Python walrus的典型案例，我如果直接写a0 += e的话没有返回值
+#不过Python walrus只在Python3.8及以后版本才有
