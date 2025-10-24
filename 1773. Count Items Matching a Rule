@@ -1,0 +1,14 @@
+#方法1
+def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
+    ind = ['type', 'color', 'name'].index(ruleKey)
+    n = 0
+    for e in items:
+        if e[ind] == ruleValue:
+            n += 1
+    return n
+#方法2: 使用list comprehension + sum函数
+def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
+    ind = ['type', 'color', 'name'].index(ruleKey)
+    return sum(1 for e in items if e[ind] == ruleValue)
+
+#注意同样的for循环放在list comprehension里会更快
