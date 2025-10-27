@@ -1,0 +1,8 @@
+def countBalls(lowLimit, highLimit):
+    r = []
+    for e in range(lowLimit, highLimit+1):
+        r.append(sum([int(f) for f in str(e)]))
+    return max(r.count(e) for e in set(r))
+#两个注意点
+#1.把一个整数取每一位最容易想到的方法就是先把其变成字符串，然后再把每一个字符变回整数
+#2.列表中最frequent的元素和其出现的frequency
