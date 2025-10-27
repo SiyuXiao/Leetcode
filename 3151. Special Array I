@@ -1,0 +1,6 @@
+def isArraySpecial(self, nums: List[int]) -> bool:
+    for i in range(len(nums)-1):
+        if nums[i] % 2 ^ nums[i+1] % 2 == False:
+            return False
+    return True
+#注意python取反不能写成直径在前面加一个~这是按位取反，不是逻辑取反，逻辑取反在前面加个not
