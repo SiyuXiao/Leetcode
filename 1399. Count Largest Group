@@ -1,0 +1,34 @@
+def countLargestGroup(n):
+    d = {}
+    for e in range(1, n+1):
+        e1 = sum(int(a) for a in str(e))
+        if e1 not in d:
+            d[e1] = 1
+        else:
+            d[e1] += 1
+    return list(d.values()).count(max(d.values()))
+countLargestGroup(13)
+
+#练习一下字典的几个操作，比如这个是找到最大的键值出现的次数
+d = {1: 2, 2: 2, 3: 2, 4: 2, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1}
+c = 0
+p = max(d.values())
+for e in d:
+    if d[e] == p:
+        c += 1
+c #输出4
+
+#简化写法
+list(d.values()).count(max(d.values()))
+#输出4
+
+#给你一个字典，找到这个字典最大的键值对应的键
+max(d, key=d.get)
+# 输出1
+#这个写法等价于
+max(d, key = lambda e:d[e])
+#输出也是1
+
+#给你一个字典，找到这个字典所有最大的键值对应的键
+[e for e in d if d[e] == max(d.values())]
+# 输出[1, 2, 3, 4]
