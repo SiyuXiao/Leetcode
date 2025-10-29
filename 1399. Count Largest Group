@@ -25,6 +25,7 @@ list(d.values()).count(max(d.values()))
 #给你一个字典，找到这个字典最大的键值对应的键
 max(d, key=d.get)
 # 输出1
+#d.get与d[]的区别是d.get的元素如果不是d里的键，不会报错，d[]的元素如果不是d里的键会报错
 #这个写法等价于
 max(d, key = lambda e:d[e])
 #输出也是1
