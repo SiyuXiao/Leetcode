@@ -1,0 +1,20 @@
+def summaryRanges(self, nums: List[int]) -> List[str]:
+    if nums == []:
+        return []
+    t = []
+    r = []
+    for i in range(len(nums)-1):
+        if nums[i] + 1 == nums[i+1]:
+            t += [nums[i], nums[i+1]]
+        elif t == []:
+            r.append(str(nums[i]))
+        else:
+            r.append(str(t[0]) + '->' + str(t[-1]))
+            t = []
+        print(t)
+    if t != []:
+        r.append(str(t[0]) + '->' + str(t[-1])) 
+    else:
+        r.append(str(nums[-1]))
+    return r
+#这个题是典型的需要多考虑边界情况的题
