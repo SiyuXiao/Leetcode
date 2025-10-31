@@ -1,0 +1,15 @@
+def numberOfLines(self, widths: List[int], s: str) -> List[int]:
+    lowercase_alphabet = [chr(i) for i in range(ord('a'), ord('z') + 1)]
+    d = {lowercase_alphabet[i]:widths[i] for i in range(26)}
+    t = 0
+    c = 0
+    for e in s:
+        if t + d[e] <= 100:
+            t += d[e]
+        else:
+            c += 1
+            t = d[e]
+    if t != 0:
+        c += 1
+    return [c, t]
+#记住拿到所有lowercase_alphabet的写法
