@@ -1,0 +1,12 @@
+def findKDistantIndices(self, nums: List[int], key: int, k: int) -> List[int]:
+    n1 = [i for i,e in enumerate(nums) if e == key]
+    r = []
+    for i in range(len(nums)):
+        for j in n1:
+            if abs(i-j) <= k:
+                r.append(i)
+    return sorted(list(set(r)))
+#如何找到列表中所有等于某个值的元素所对应的index？不能用index函数，因为index函数只能返回第一个满足条件的值所对应的index
+#用list comprehension是最容易理解的方法
+#比如这个题的例子：nums = [3,4,9,1,3,9,5], key = 9
+#找到所有nums中等于9的元素所对应的index, [i for i,e in enumerate(nums) if e == key]
