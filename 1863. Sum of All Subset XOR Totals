@@ -1,0 +1,15 @@
+def subsetXORSum(self, nums: List[int]) -> int:
+    result = [[]]  # 从空集开始
+    for x in nums:
+        new_subsets = []
+        for subset in result:
+            new_subsets.append(subset + [x])
+        result += new_subsets
+    c = 0
+    for e in result[1:]:
+        t = 0
+        for f in e:
+            t = t^f
+        c += t
+    return c
+#这个题的考查点还是给你一个列表，如何找到这个列表所有的子集？
