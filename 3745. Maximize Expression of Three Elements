@@ -1,0 +1,3 @@
+def maximizeExpressionOfThree(self, nums: List[int]) -> int:
+    return sum(sorted(nums)[-2:]) - sorted(nums)[0]
+#一行搞定
