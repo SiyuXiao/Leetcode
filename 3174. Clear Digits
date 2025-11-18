@@ -1,0 +1,23 @@
+#解法1: 我自己第一次做，用迭代硬做
+def clearDigits(self, s: str) -> str:
+    while any(c.isdigit() for c in s) == True:
+        for i in range(len(s)):
+            if s[i].isdigit() == True:
+                s = s.replace(s[i], '', 1)
+                if s != '':
+                    s = s[:i-1] + s[i:]
+                else:
+                    break
+                break
+    return s
+
+#解法2: 我就觉得应该有更简单的方法，所以我看答案发现这不很明显就是一个stack的题么
+def clearDigits(self, s: str) -> str:
+    stack = []
+    for e in s:
+        if e.isdigit():
+            if stack:
+                stack.pop()
+        else:
+            stack.append(e)
+    return ''.join(stack)
