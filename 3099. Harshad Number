@@ -1,0 +1,3 @@
+def sumOfTheDigitsOfHarshadNumber(self, x: int) -> int:
+    return sum(int(e) for e in str(x)) if x % sum(int(e) for e in str(x)) == 0 else -1
+#注意如何一行搞定
