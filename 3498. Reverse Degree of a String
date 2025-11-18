@@ -1,0 +1,6 @@
+def reverseDegree(self, s: str) -> int:
+    letter =  [chr(e) for e in range(ord('a'), ord('z')+1)]
+    ind = [e for e in range(26, 0, -1)]
+    d = {letter[i]:ind[i] for i in range(26)}
+    return sum(d[s[i]]*(i+1) for i in range(len(s)))  
+#注意怎么用循环的方式拿到所有字母 
