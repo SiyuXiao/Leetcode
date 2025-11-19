@@ -1,0 +1,4 @@
+def removePalindromeSub(self, s: str) -> int:
+    return 1 if s == s[::-1] else 2
+#这个题太迷糊人了，一共只有两种字母，而且随便删除，subsequence无需连续，那我最多只需要两步就能全删了，
+#比如先把所有a删除了，再把所有b删除了
