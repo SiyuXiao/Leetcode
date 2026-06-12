@@ -1,0 +1,19 @@
+def findKOr(self, nums: List[int], k: int) -> int:
+    nums1 = []
+    m = len(bin(max(nums)))
+    for e in nums:
+        if len(bin(e)) == m:
+            nums1.append(bin(e)[2:])
+        else:
+            nums1.append('0'* (m-len(bin(e))) + bin(e)[2:])
+    nums2 = [[] for i in range(m-2)]   #remember we cannot use [[]] * (m-2)
+    for e in nums1:
+        for i in range(len(e)):
+            nums2[i].append(e[i])
+    r = ''
+    for e in nums2:
+        if e.count('1') >= k:
+            r += '1'
+        else:
+            r += '0'
+    return int(r, 2)
