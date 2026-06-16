@@ -1,0 +1,10 @@
+def sortString(self, s: str) -> str:
+    s1 = sorted(set(s))
+    r = ''
+    while s != '':
+        for e in s1:
+            if e in s:
+                r += e
+                s = s.replace(e, '', 1) # Attention to the replace function that defaultly replace all the characters
+        s1 = s1[::-1]
+    return r        
