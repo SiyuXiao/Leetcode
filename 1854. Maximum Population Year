@@ -1,0 +1,11 @@
+def maximumPopulation(self, logs: List[List[int]]) -> int:
+    logs = sorted(logs)
+    logs1 = [[f for f in range(e[0], e[-1])] for e in logs]
+    d = {}
+    for e in logs1:
+        for f in e:
+            if f not in d:
+                d[f] = 1
+            else:
+                d[f] += 1
+    return max(d, key=d.get)  #remember how to get the key with max value    
