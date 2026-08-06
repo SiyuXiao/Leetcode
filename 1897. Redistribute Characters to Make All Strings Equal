@@ -1,0 +1,11 @@
+def makeEqual(words):
+    if len(words) == 1:
+        return True
+    d = {}
+    for e in words:
+        for f in e:
+            if f not in d:
+                d[f] = 1
+            else:
+                d[f] += 1
+    return set([e % len(words) for e in d.values()]) == {0}
