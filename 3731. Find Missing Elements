@@ -1,0 +1,3 @@
+def findMissingElements(nums):
+    return [e for e in range(min(nums), max(nums)+1) if e not in nums]
+#Remember in Python list comprehension, if is after for loop
