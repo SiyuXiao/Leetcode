@@ -1,0 +1,17 @@
+def surfaceArea(self, grid: List[List[int]]) -> int:
+    n = len(grid)
+    r = 0
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j]:
+                r += 2
+                for ni, nj in [[i-1, j], [i+1, j], [i, j-1], [i, j+1]]:
+                    if 0 <= ni < n and 0 <= nj < n:
+                        nval = grid[ni][nj]
+                    else:
+                        nval = 0
+                    r += max(grid[i][j] - nval, 0)
+    return r
+# I did this answer based on the Solutions
+# Attention to this: for ni, nj in [[i-1, j], [i+1, j], [i, j-1], [i, j+1]]:
+# there can be more than 1 item in for loop
