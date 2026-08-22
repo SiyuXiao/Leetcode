@@ -1,0 +1,13 @@
+def numberOfSpecialChars(self, word: str) -> int:
+    r = 0
+    upperset = set()
+    lowerset = set()
+    for e in word:
+        if e.isupper() == True:
+            upperset.add(e)
+        else:
+            lowerset.add(e)
+    for e in upperset:
+        if e.lower() in lowerset:
+            r += 1
+    return r
