@@ -1,0 +1,8 @@
+def minimumBoxes(self, apple: List[int], capacity: List[int]) -> int:
+    n = sum(apple)
+    ca = sorted(capacity, reverse=True)
+    c = 0
+    for i in range(len(ca)):
+        c += ca[i]
+        if c >= n:
+            return i+1
