@@ -1,0 +1,2 @@
+def stableMountains(height, threshold):
+    return [i+1 for i in range(len(height)) if height[i] > threshold and i+1 < len(height)]
